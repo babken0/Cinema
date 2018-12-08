@@ -1,5 +1,6 @@
 package com.nikovarchapet.cinema.cinema;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Hall {
@@ -13,6 +14,7 @@ public class Hall {
     int seatCount;
     List<Place> places;
     public Hall(String name, int rowCount, int seatCount ){
+        places = new ArrayList<>();
         this.name = name;
         this.rowCount=rowCount;
         this.seatCount = seatCount;
