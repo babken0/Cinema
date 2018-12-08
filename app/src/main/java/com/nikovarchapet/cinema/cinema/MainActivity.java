@@ -2,6 +2,7 @@ package com.nikovarchapet.cinema.cinema;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -21,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         data = new ArrayList<>();
         Film film1 = new Film(R.drawable.pirates, "Pirates");
-        Film film2 = new Film(R.drawable.pirates, "Porsaj");
+        Film film2 = new Film(R.drawable.pirates, "Forsaj");
         Film film3 = new Film(R.drawable.pirates, "Fontan");
         Film film4 = new Film(R.drawable.pirates, "Nachalo");
         data.add(film1);
@@ -42,8 +43,7 @@ public class MainActivity extends AppCompatActivity {
         film4.addSeans(seans1);
         film4.addSeans(seans3);
         recyclerView = findViewById(R.id.recyclerView);
-        LinearLayoutManager manager = new LinearLayoutManager(this,
-                LinearLayoutManager.VERTICAL, false);
+        GridLayoutManager manager = new GridLayoutManager(this, 3);
         recyclerView.setLayoutManager(manager);
         SimpleAdapter adapter = new SimpleAdapter(this,data);
         recyclerView.setAdapter(adapter);
