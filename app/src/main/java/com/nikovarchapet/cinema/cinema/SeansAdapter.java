@@ -1,5 +1,7 @@
 package com.nikovarchapet.cinema.cinema;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,7 +10,17 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.List;
+
 public class SeansAdapter extends RecyclerView.Adapter<SeansAdapter.ViewHolder>{
+    List<Seans> seans;
+    Context context;
+
+    public SeansAdapter(Context context,List<Seans> seans) {
+        this.seans = seans;
+        this.context = context;
+    }
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
@@ -19,12 +31,21 @@ public class SeansAdapter extends RecyclerView.Adapter<SeansAdapter.ViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-
+        viewHolder.hallName.setText( seans.get(viewHolder.getAdapterPosition()).hall.name );
+        viewHolder.price.setText("price: " + seans.get(viewHolder.getAdapterPosition()).price);
+        viewHolder.time.setText("Time: " + seans.get(viewHolder.getAdapterPosition()).date); ;
+        viewHolder.reserveBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context,HallActivity.class);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return seans.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{

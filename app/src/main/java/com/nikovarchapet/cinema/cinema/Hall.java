@@ -9,7 +9,7 @@ public class Hall {
     public static final Hall HALL_2 = new Hall("Hall 2", 12 , 24);
     public static final Hall HALL_3 = new Hall("Hall 3", 30 , 30);
     public static final Hall VIP_HALL = new Hall("VIP Hall", 2 , 4);
-    String name; 
+    String name;
     int rowCount;
     int seatCount;
     List<Place> places;
