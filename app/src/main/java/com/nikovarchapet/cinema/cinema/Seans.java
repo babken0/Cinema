@@ -1,8 +1,9 @@
 package com.nikovarchapet.cinema.cinema;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Seans {
+public class Seans implements Serializable {
     Hall hall;
     Date date;
     int price;
