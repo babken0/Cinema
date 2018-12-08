@@ -1,7 +1,7 @@
 package com.nikovarchapet.cinema.cinema;
 
 public class Place {
-    boolean free;
+    boolean free=true;
 //    User user;
     int rownumber;
     int seatnumber;

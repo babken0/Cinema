@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".SeansList"></activity>
+        <activity android:name=".HallActivity"></activity>
     </application>
 
 </manifest>
