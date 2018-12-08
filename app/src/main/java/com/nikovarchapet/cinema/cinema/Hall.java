@@ -3,10 +3,17 @@ package com.nikovarchapet.cinema.cinema;
 import java.util.List;
 
 public class Hall {
+
+    public static final Hall HALL_1 = new Hall("Hall 1", 7 , 10);
+    public static final Hall HALL_2 = new Hall("Hall 2", 12 , 24);
+    public static final Hall HALL_3 = new Hall("Hall 3", 30 , 30);
+    public static final Hall VIP_HALL = new Hall("VIP Hall", 2 , 4);
+    String name; 
     int rowCount;
     int seatCount;
     List<Place> places;
-    public Hall(int rowCount, int seatCount ){
+    public Hall(String name, int rowCount, int seatCount ){
+        this.name = name;
         this.rowCount=rowCount;
         this.seatCount = seatCount;
         addPlaces(rowCount, seatCount);
