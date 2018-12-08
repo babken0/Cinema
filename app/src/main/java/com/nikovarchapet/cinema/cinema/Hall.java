@@ -1,9 +1,10 @@
 package com.nikovarchapet.cinema.cinema;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Hall {
+public class Hall implements Serializable {
 
     public static final Hall HALL_1 = new Hall("Hall 1", 7 , 10);
     public static final Hall HALL_2 = new Hall("Hall 2", 12 , 24);

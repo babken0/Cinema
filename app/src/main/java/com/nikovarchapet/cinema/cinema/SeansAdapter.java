@@ -30,7 +30,7 @@ public class SeansAdapter extends RecyclerView.Adapter<SeansAdapter.ViewHolder>{
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull final ViewHolder viewHolder, int i) {
         viewHolder.hallName.setText( seans.get(viewHolder.getAdapterPosition()).hall.name );
         viewHolder.price.setText("price: " + seans.get(viewHolder.getAdapterPosition()).price);
         viewHolder.time.setText("Time: " + seans.get(viewHolder.getAdapterPosition()).date); ;
@@ -38,6 +38,7 @@ public class SeansAdapter extends RecyclerView.Adapter<SeansAdapter.ViewHolder>{
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context,HallActivity.class);
+                intent.putExtra("Hall",seans.get(viewHolder.getAdapterPosition()).hall);
                 context.startActivity(intent);
             }
         });

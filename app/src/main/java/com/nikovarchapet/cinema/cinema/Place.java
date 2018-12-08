@@ -1,6 +1,8 @@
 package com.nikovarchapet.cinema.cinema;
 
-public class Place {
+import java.io.Serializable;
+
+public class Place implements Serializable {
     boolean free=true;
 //    User user;
     int rownumber;
