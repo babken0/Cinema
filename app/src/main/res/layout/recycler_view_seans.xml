@@ -3,13 +3,16 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="112dp"
-    android:padding="8dp">
+    android:padding="8dp"
+    android:background="#CCffffff">
 
     <TextView
         android:id="@+id/hallName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="left|center_vertical"/>
+        android:layout_gravity="left|center_vertical"
+        android:textSize="24sp"
+        android:textStyle="bold"/>
 
     <Button
         android:id="@+id/reserveBtn"
@@ -22,7 +25,8 @@
         android:id="@+id/price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="right|top" />
+        android:layout_gravity="right|top"
+        android:textColor="#FF0000"/>
 
     <TextView
         android:id="@+id/time"
