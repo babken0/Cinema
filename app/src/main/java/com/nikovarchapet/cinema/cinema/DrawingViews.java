@@ -21,7 +21,7 @@ DrawingViews extends View {
     private int distanceY;
     private int width;
     private int heigth;
-    private Hall hall = Hall.HALL_1;
+    private Hall hall = new Hall("", 0, 0);
 
 
 
@@ -55,8 +55,8 @@ DrawingViews extends View {
     private void initWithSize() {
         width=getWidth();
         heigth=getHeight();
-        radius=(width-hall.rowCount*10)/(2*hall.rowCount);
-        distanceY=((heigth-radius*hall.seatCount)/hall.seatCount);
+        radius=width/(2*hall.rowCount);///(width-20-hall.rowCount*10)/(2*hall.rowCount);
+        distanceY=2*radius;//((heigth-20-radius*hall.seatCount)/hall.seatCount);
 
     }
     @Override
@@ -65,19 +65,25 @@ DrawingViews extends View {
         for (Place p : hall.places) {
             if(p.free ){
                 paint.setColor(Color.YELLOW);
-                canvas.drawCircle(p.rownumber * (2*radius+distanceX) + 20, p.seatnumber * (2*radius+distanceY) + 20, radius, paint);
+                canvas.drawCircle(p.rownumber * (2*radius) + radius, p.seatnumber * (2*radius) + distanceY, radius - 10, paint);
             }else{
                 paint.setColor(Color.GREEN);
-                canvas.drawCircle(p.rownumber * (2*radius+distanceX) + 20, p.seatnumber * (2*radius+distanceY) + 20, radius, paint);
+                canvas.drawCircle(p.rownumber * (2*radius) + radius, p.seatnumber * (2*radius) + distanceY, radius - 10, paint);
             }
         }
 
 
     }
 
-    private void belongs(double touchx,double touchy){
+    public void setHall(Hall hall) {
+        this.hall = hall;
+        initWithSize();
+        invalidate();
+    }
+
+    private void belongs(double touchx, double touchy){
         for (Place p: hall.places) {
-            if(Math.sqrt(Math.pow(((p.rownumber*50+20)-touchx),2)+Math.pow(((p.seatnumber*50+20)-touchy),2))<20){
+            if(Math.sqrt(Math.pow((p.rownumber * (2*radius) + radius-touchx),2)+Math.pow((p.seatnumber * (2*radius) + distanceY-touchy),2))<20){
                 p.free =false;
                 invalidate();
                 break;
