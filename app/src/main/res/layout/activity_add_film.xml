@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddFilmActivity"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <EditText
+        android:id="@+id/kinoName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Film name" />
+
+
+    <Button
+        android:id="@+id/addSeanceBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:padding="10dp"
+        android:text="Add seance" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerViewAdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </android.support.v7.widget.RecyclerView>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|bottom"
+            android:layout_marginBottom="50dp">
+
+            <CheckBox
+                android:id="@+id/selectImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"/>
+
+            <Button
+                android:id="@+id/addImageBTN"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add Image"
+                android:layout_gravity="right"/>
+
+        </LinearLayout>
+
+    <Button
+        android:id="@+id/addFilmBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="Add Film"
+        android:enabled="false"
+        android:layout_gravity="right|bottom"
+        />
+
+    </FrameLayout>
+
+</LinearLayout>

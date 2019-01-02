@@ -2,6 +2,7 @@ package com.nikovarchapet.cinema.cinema;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -35,7 +36,7 @@ public class SimpleAdapter extends RecyclerView.Adapter<SimpleAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder viewHolder, int position) {
         viewHolder.name.setText(data.get(viewHolder.getAdapterPosition()).name);
-        viewHolder.image.setImageResource(data.get(viewHolder.getAdapterPosition()).imageId);
+        viewHolder.image.setImageURI((Uri.parse(data.get(viewHolder.getAdapterPosition()).imageUri)));
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

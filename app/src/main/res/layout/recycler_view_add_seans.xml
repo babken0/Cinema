@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="15dp"
+    android:background="#f0ffff">
+
+    <TextView
+        android:id="@+id/recyclerViewSpinner"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:fontFamily="cursive"
+        android:layout_gravity="left|center"/>
+
+
+    <TextView
+        android:id="@+id/recyclerViewTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="cursive"
+        android:hint="Time"
+        android:layout_gravity="right|top"/>
+
+    <TextView
+        android:id="@+id/recyclerViewPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Price"
+        android:fontFamily="cursive"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="right|bottom"/>
+
+
+
+</FrameLayout>

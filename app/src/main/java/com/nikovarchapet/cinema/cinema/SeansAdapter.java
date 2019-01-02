@@ -16,6 +16,12 @@ public class SeansAdapter extends RecyclerView.Adapter<SeansAdapter.ViewHolder>{
     List<Seans> seans;
     Context context;
 
+    interface OnItemClickListener{
+        void onItemClick(Seans seans);
+    }
+
+    private OnItemClickListener onItemClickListener;
+
     public SeansAdapter(Context context,List<Seans> seans) {
         this.seans = seans;
         this.context = context;
@@ -33,20 +39,25 @@ public class SeansAdapter extends RecyclerView.Adapter<SeansAdapter.ViewHolder>{
     public void onBindViewHolder(@NonNull final ViewHolder viewHolder, int i) {
         viewHolder.hallName.setText( seans.get(viewHolder.getAdapterPosition()).hall.name );
         viewHolder.price.setText("price: " + seans.get(viewHolder.getAdapterPosition()).price);
-        viewHolder.time.setText("Time: " + seans.get(viewHolder.getAdapterPosition()).date); ;
-        viewHolder.reserveBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context,HallActivity.class);
-                intent.putExtra("Hall",seans.get(viewHolder.getAdapterPosition()).hall);
-                context.startActivity(intent);
-            }
-        });
+
+        viewHolder.time.setText("Time: " + seans.get(viewHolder.getAdapterPosition()).date);
+        if(onItemClickListener != null){
+            viewHolder.reserveBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onItemClickListener.onItemClick(seans.get(viewHolder.getAdapterPosition()));
+                }
+            });
+        }
     }
 
     @Override
     public int getItemCount() {
         return seans.size();
+    }
+
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{

@@ -16,8 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SeansListActivity"></activity>
-        <activity android:name=".HallActivity"></activity>
+        <activity android:name=".SeansListActivity" />
+        <activity android:name=".HallActivity" />
+        <activity android:name=".FilmListActivity" />
+        <activity android:name=".AddFilmActivity" />
+        <activity android:name=".AddSeansActivity"></activity>
     </application>
 
 </manifest>
