@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -113,12 +114,16 @@ public class AddFilmActivity extends AppCompatActivity implements View.OnClickLi
                 break;
 
             case R.id.addFilmBtn:
-                Film film = new Film(seanses,imageUri.toString(),filmName.getText().toString());
-                Intent resaultIntent = new Intent(AddFilmActivity.this,FilmListActivity.class);
-                resaultIntent.putExtra("Film",film);
-                setResult(RESULT_OK,resaultIntent);
-                finish();
-
+                if(filmName.getText().toString().equals("")){
+                    Toast.makeText(this, "Please enter film name", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Film film = new Film(seanses, imageUri.toString(), filmName.getText().toString());
+                    Intent resaultIntent = new Intent(AddFilmActivity.this, FilmListActivity.class);
+                    resaultIntent.putExtra("Film", film);
+                    setResult(RESULT_OK, resaultIntent);
+                    finish();
+                }
         }
     }
 

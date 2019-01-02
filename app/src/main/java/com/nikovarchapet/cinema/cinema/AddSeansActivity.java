@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.Date;
 
@@ -74,12 +75,23 @@ public class AddSeansActivity extends AppCompatActivity {
         okBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(item == null){
+                    Toast.makeText(AddSeansActivity.this, "Please select hall", Toast.LENGTH_SHORT).show();
+                }
 
-                Seans seans = new Seans(item,addDate.getText().toString(), Integer.parseInt(addPrice.getText().toString()));
-                Intent resaultIntent = new Intent(AddSeansActivity.this,AddFilmActivity.class);
-                resaultIntent.putExtra("Seans", seans);
-                setResult(RESULT_OK,resaultIntent);
-                finish();
+                else if(addDate.getText().toString().equals("")){
+                    Toast.makeText(AddSeansActivity.this, "Please enter date", Toast.LENGTH_SHORT).show();
+                }
+                else if(addPrice.getText().toString().equals("")){
+                    Toast.makeText(AddSeansActivity.this, "Please enter price", Toast.LENGTH_SHORT).show();
+                }
+                else  {
+                    Seans seans = new Seans(item, addDate.getText().toString(), Integer.parseInt(addPrice.getText().toString()));
+                    Intent resaultIntent = new Intent(AddSeansActivity.this, AddFilmActivity.class);
+                    resaultIntent.putExtra("Seans", seans);
+                    setResult(RESULT_OK, resaultIntent);
+                    finish();
+                }
             }
         });
 
